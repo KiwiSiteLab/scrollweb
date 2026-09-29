@@ -1,0 +1,16 @@
+{
+  "0": {
+    "water": 9.868,
+    "clouds": 2.228,
+    "structure": 0.0
+  },
+  "1": {
+    "fire": 9.684,
+    "window": 0.722,
+    "structure": 0.0
+  },
+  "paused": {
+    "fire": 0.0,
+    "window": 0.0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "opening": {
+    "frames": 74,
+    "wraps": 2,
+    "duration": 1.25,
+    "width": 2052,
+    "height": 1008,
+    "scroll": 0,
+    "src": "assets/opening-native.mp4"
+  },
+  "middle": {
+    "time": 3.017504,
+    "duration": 6.041667
+  },
+  "errors": [],
+  "checked": [
+    "native idle playback",
+    "loop seam",
+    "pause/resume",
+    "scroll transition",
+    "return to exterior",
+    "mobile source",
+    "reduced motion"
+  ]
+}

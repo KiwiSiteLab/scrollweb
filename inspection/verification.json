@@ -1,0 +1,78 @@
+{
+  "results": [
+    {
+      "target": 0,
+      "scroll": 0,
+      "time": 0,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "000%",
+      "overflow": false
+    },
+    {
+      "target": 0.25,
+      "scroll": 0.25,
+      "time": 1.498606,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "025%",
+      "overflow": false
+    },
+    {
+      "target": 0.5,
+      "scroll": 0.5,
+      "time": 3.008967,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "050%",
+      "overflow": false
+    },
+    {
+      "target": 0.75,
+      "scroll": 0.75,
+      "time": 4.519365,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "075%",
+      "overflow": false
+    },
+    {
+      "target": 1,
+      "scroll": 1,
+      "time": 6.041667,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "100%",
+      "overflow": false
+    },
+    {
+      "target": 0.3,
+      "scroll": 0.3,
+      "time": 1.8125,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "030%",
+      "overflow": false
+    },
+    {
+      "target": 0,
+      "scroll": 0,
+      "time": 0,
+      "duration": 6.041667,
+      "seeking": false,
+      "progress": "000%",
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "checked": [
+    "forward/reverse seek",
+    "start/end",
+    "desktop/mobile layout",
+    "business card dialog and Escape",
+    "phone/email links",
+    "static toggle",
+    "reduced motion skips video",
+    "no-JS content"
+  ]
+}
