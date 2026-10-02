@@ -11,11 +11,18 @@ http.createServer((req,res)=>{
   if(!path.startsWith(resolve(root)+sep)){res.writeHead(403).end();return;}
   try {
     const stat=statSync(path); if(!stat.isFile()) throw Error();
-    const headers={'Content-Type':types[extname(path)]||'application/octet-stream','Accept-Ranges':'bytes','Cache-Control':'no-cache'};
+    const headers={'Content-Type':types[extname(path)]||'application/octet-stream','Accept-Ranges':'bytes','Cache-Control':'no-cache','Connection':'close'};
     const range=req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
     let start=0,end=stat.size-1,status=200;
     if(range){start=Number(range[1]);end=range[2]?Math.min(Number(range[2]),end):end;status=206;if(start>end){res.writeHead(416,{'Content-Range':`bytes */${stat.size}`}).end();return;}headers['Content-Range']=`bytes ${start}-${end}/${stat.size}`;}
     headers['Content-Length']=end-start+1;res.writeHead(status,headers);
-    if(req.method==='HEAD')res.end();else createReadStream(path,{start,end}).pipe(res);
+    if(req.method==='HEAD')res.end();else {
+      const stream=createReadStream(path,{start,end});
+      // Media decoders cancel range requests when priming a second buffer.
+      // Close that stream as well, rather than retaining an abandoned pipe.
+      res.on('close',()=>stream.destroy());
+      stream.on('error',()=>res.destroy());
+      stream.pipe(res);
+    }
   }catch{res.writeHead(404).end('Not found');}
-}).listen(4173,'127.0.0.1',()=>console.log('Preview: http://127.0.0.1:4173'));
+}).listen(Number(process.env.PORT)||4173,'127.0.0.1',()=>console.log(`Preview: http://127.0.0.1:${Number(process.env.PORT)||4173}`));
